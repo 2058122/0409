@@ -20,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/", function (req, res) {
+  console.log(req.body);
   const data = req.body;
   console.log("req.body", data);
   res.send("api: ok");
