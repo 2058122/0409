@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000; //Heroku用
 const bodyParser = require("body-parser");
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Hello World!");
 });
 app.get("/api/get/", (req, res) => {
   res.json({ message: "こちらはルートパスです" });
