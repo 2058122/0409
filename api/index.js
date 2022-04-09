@@ -13,7 +13,7 @@ app.post("/", function (req, res) {
   res.send("api: ok");
 });
 
-const options = {
+/*const options = {
   url: `https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
   method: "get",
   headers: {
@@ -25,6 +25,6 @@ const options = {
 request(options, function (error, response, body) {
   const buffer = new Buffer.from(body);
   console.log(buffer);
-});
+});*/
 
 process.env.NOW_REGION ? (module.express = app) : app.listen(PORT); //Heroku用
