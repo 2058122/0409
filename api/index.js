@@ -7,8 +7,8 @@ const PORT = process.env.PORT || 3000; //Heroku用
 //app.use(express.urlencoded({ extended: true }));
 
 app.post("/", function (req, res) {
-  //console.log(req.body);
-  const data = req.body;
+  console.log(req.body);
+  const data = req.body["events"][0]["message"]["id"];
   console.log("req.body", data);
   res.send("api: ok");
 });
