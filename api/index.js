@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/", function (req, res) {
-  const data = req.body.events[0].message;
+  const data = req.body;
   console.log("req.body", data);
   res.send("api: ok");
 });
