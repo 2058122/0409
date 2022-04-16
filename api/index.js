@@ -40,7 +40,7 @@ app.post("/", function (req, res) {
     request.post(option, function (error, res, body) {
       console.log(body);
       console.log(replyToken);
-      const resBody = JSON.parse(body);
+      //const resBody = JSON.parse(body);
 
       const messageData = {
         replyToken: replyToken,
