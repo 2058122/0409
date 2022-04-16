@@ -1,22 +1,18 @@
 const express = require("express");
 const request = require("request");
 const app = express();
-const accessToken =
-  "mT1PIkPaE29mNovFkm0MhTeRF+5V9bXK0EU8iwMgS4K1OBrry+NW6FQpY/67tNTDG339pv0rVRaESIlIJPO4XrbqoliIZaZQkLdgDtJlr1eZqEg/Mh13NtCgPyfF4vOE/OS7yaT/63VLSCpPZtEFqgdB04t89/1O/w1cDnyilFU=";
-//const bodyParser = require("body-parser");
-const PORT = process.env.PORT || 3000; //Heroku用
+const accessToken = "mT1PIkPaE29mNovFkm0MhTeRF+5V9bXK0EU8iwMgS4K1OBrry+NW6FQpY/67tNTDG339pv0rVRaESIlIJPO4XrbqoliIZaZQkLdgDtJlr1eZqEg/Mh13NtCgPyfF4vOE/OS7yaT/63VLSCpPZtEFqgdB04t89/1O/w1cDnyilFU=";
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-//app.use(bodyParser.json()); //必須
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/", function (req, res) {
-  console.log(req.body);
   const data = req.body.events[0].message;
   const replyToken = req.body["events"][0]["replyToken"];
 
   console.log("req.body", data);
-  res.send("api: ok");
+  res.send("api: OK");
   const options = {
     url: `https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
     method: "get",
@@ -42,7 +38,7 @@ app.post("/", function (req, res) {
     request.post(option, function (error, res, body) {
       console.log(body);
       console.log(replyToken);
-      //const resBody = JSON.parse(body);
+      // const resBody = JSON.parse(body);
 
       const messageData = {
         replyToken: replyToken,
