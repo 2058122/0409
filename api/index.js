@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/", function (req, res) {
   //console.log(req.body);
-  const data = req.body["events"][0]["message"]["id"];
+  const data = req.body.events[0].message;
   const replyToken = req.body["events"][0]["replyToken"];
 
   console.log("req.body", data);
@@ -31,7 +31,7 @@ app.post("/", function (req, res) {
       uri: "https://leadhacktesteastaustralia-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/f1340660-50a3-46ea-b35d-b058301e2bac/classify/iterations/Iteration1/image",
       method: "post",
       headers: {
-        "Content-Type": "application/octet-stream",
+        "Content-Type": "application/ocset-stream",
         "Prediction-Key": "79b82d8d56a94d17a05830b51c1daeb8",
       },
       body: buffer,
