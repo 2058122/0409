@@ -12,13 +12,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/", function (req, res) {
   console.log(req.body);
-  const data = req.body["events"][0]["message"]["id"];
+  const data = req.body.events[0].message;
   const replyToken = req.body["events"][0]["replyToken"];
 
   console.log("req.body", data);
   res.send("api: ok");
   const options = {
-    url: `https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
+    url: "https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content",
     method: "get",
     headers: {
       Authorization: "Bearer " + accessToken,
