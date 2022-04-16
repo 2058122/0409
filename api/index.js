@@ -28,11 +28,11 @@ app.post("/", function (req, res) {
     const buffer = new Buffer.from(body);
     console.log(buffer);
     const option = {
-      uri: "https://leadhacktesteastjapan-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/3995706a-5622-438d-afce-71de27a57ca5/classify/iterations/Iteration1/image",
+      uri: "https://leadhacktesteastaustralia-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/f1340660-50a3-46ea-b35d-b058301e2bac/classify/iterations/Iteration1/url",
       method: "post",
       headers: {
         "Content-Type": "application/octet-stream",
-        "Prediction-Key": "034d56b2970f4167b38c1278b84ecdb7",
+        "Prediction-Key": "79b82d8d56a94d17a05830b51c1daeb8",
       },
       body: buffer,
     };
