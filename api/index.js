@@ -11,7 +11,7 @@ app.use(bodyParser.json()); //必須
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/", function (req, res) {
-  //console.log(req.body);
+  console.log(req.body);
   const data = req.body.events[0].message.id;
   const replyToken = req.body["events"][0]["replyToken"];
 
