@@ -18,7 +18,7 @@ app.post("/", function (req, res) {
   console.log("req.body", data);
   res.send("api: ok");
   const options = {
-    url: "https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content",
+    url: `https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
     method: "get",
     headers: {
       Authorization: "Bearer " + accessToken,
@@ -71,4 +71,4 @@ app.post("/", function (req, res) {
   });
 });
 
-process.env.NOW_REGION ? (module.exports = app) : app.listen(PORT); //Heroku用
+process.env.NOW_REGION ? (module.exports = app) : app.listen(PORT);
