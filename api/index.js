@@ -28,7 +28,7 @@ app.post("/", function (req, res) {
     const buffer = new Buffer.from(body);
     console.log(buffer);
     const option = {
-      uri: "https://leadhacktesteastaustralia-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/f1340660-50a3-46ea-b35d-b058301e2bac/classify/iterations/Iteration1/url",
+      uri: "https://leadhacktesteastaustralia-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/f1340660-50a3-46ea-b35d-b058301e2bac/classify/iterations/Iteration1/image",
       method: "post",
       headers: {
         "Content-Type": "application/octet-stream",
