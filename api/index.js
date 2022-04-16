@@ -11,15 +11,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/", function (req, res) {
-  //console.log(req.body);
-  //const data = req.body["events"][0]["message"]["id"];
+  console.log(req.body);
+  const data = req.body["events"][0]["message"]["id"];
   const replyToken = req.body["events"][0]["replyToken"];
 
-  //console.log("req.body", data);
+  console.log("req.body", data);
   res.send("api: ok");
   const options = {
     url: `https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
-    method: "get",
+    method: "GET",
     headers: {
       Authorization: "Bearer " + accessToken,
     },
@@ -31,17 +31,17 @@ app.post("/", function (req, res) {
     console.log(buffer);
     const option = {
       uri: "https://leadhacktesteastaustralia-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/f1340660-50a3-46ea-b35d-b058301e2bac/classify/iterations/Iteration1/image",
-      method: "post",
+      method: "POST",
       headers: {
-        "Content-Type": "application/ocset-stream",
+        "Content-Type": "application/octet-stream",
         "Prediction-Key": "79b82d8d56a94d17a05830b51c1daeb8",
       },
       body: buffer,
     };
 
     request.post(option, function (error, res, body) {
-      //console.log(body);
-      //console.log(replyToken);
+      console.log(body);
+      console.log(replyToken);
       //const resBody = JSON.parse(body);
 
       const messageData = {
