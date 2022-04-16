@@ -90,7 +90,7 @@ app.post("/", (req, res) => {
   res.send("API:ok");
 
   const options = {
-    url: "https://api-data.line.me/v2/bot/message/data/content",
+    url: `https://api-data.line.me/v2/bot/message/${req.body.events[0].message.id}/content`,
     method: "get",
     headers: {
       Authorization: "Bearer " + accessToken,
