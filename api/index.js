@@ -76,19 +76,19 @@ const PORT = process.env.PORT || 3000; //Heroku用
 const bodyParser = require("body-parser");
 const request = require("request");
 const accessToken =
-  "2URYJ4A8RIw4FCltZeYploctm4mVqGAlxEnu340WQV+P93maUNOrOaX6EZRvaHLTAUlsPWMqK7aFb6KW1NHSMcWvZbnOgmTUwh/GE+zu62EiEZJ+Tp+NYnhFHkIlR3GRa1x0OwwtUOFd7J3crIwE4wdB04t89/1O/w1cDnyilFU=";
-​
+  "mT1PIkPaE29mNovFkm0MhTeRF+5V9bXK0EU8iwMgS4K1OBrry+NW6FQpY/67tNTDG339pv0rVRaESIlIJPO4XrbqoliIZaZQkLdgDtJlr1eZqEg/Mh13NtCgPyfF4vOE/OS7yaT/63VLSCpPZtEFqgdB04t89/1O/w1cDnyilFU=";
+
 app.use(express.json());
 app.use(bodyParser.json()); //必須
 app.use(express.urlencoded({ extended: true }));
-​
+
 app.post("/", (req, res) => {
   const data = req.body.events[0].message.id; //.events[0].messages;
   //const replyToken = req.body["events"][0]["replyToken"];
-​
+
   console.log("req.bodyの中身のメッセージID", data);
   res.send("API:ok");
-​
+
   const options = {
     url: "https://api-data.line.me/v2/bot/message/data/content",
     method: "get",
@@ -97,7 +97,7 @@ app.post("/", (req, res) => {
     },
     encoding: null,
   };
-​
+
   request(options, (error, response, body) => {
     const buffer = new Buffer.from(body);
     console.log(buffer); //バイナリデータ
@@ -111,7 +111,7 @@ app.post("/", (req, res) => {
       body: buffer,
     };
     console.log("optionの中身", option);
-​
+
     request.post(option, function (error, res, body) {
       console.log("bodyの中身", body);
       //console.log("replyTokenの中身", replyToken);
@@ -120,9 +120,9 @@ app.post("/", (req, res) => {
   });
 });
 process.env.NOW_REGION ? (module.express = app) : app.listen(PORT); //Heroku用
-​
+
 //http://localhost:3000
-​
+
 /*
 //がいさんのコード
 const express = require("express");
